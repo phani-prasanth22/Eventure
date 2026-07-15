@@ -1,0 +1,12 @@
+.overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 1000; animation: fadeIn 0.2s ease; }
+.modal { background: var(--surface); border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; animation: slideUp 0.3s ease; }
+.sm { width: 100%; max-width: 400px; }
+.md { width: 100%; max-width: 500px; }
+.lg { width: 100%; max-width: 700px; }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
+.title { font-size: 1.125rem; font-weight: 600; }
+.closeBtn { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: var(--radius); background: transparent; color: var(--text-secondary); transition: all var(--transition); }
+.closeBtn:hover { background: var(--gray-100); color: var(--text-primary); }
+.content { padding: 1.5rem; overflow-y: auto; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }

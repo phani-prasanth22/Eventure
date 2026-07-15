@@ -1,0 +1,9 @@
+.wrapper { display: flex; flex-direction: column; gap: 0.375rem; }
+.fullWidth { width: 100%; }
+.label { font-size: 0.875rem; font-weight: 500; color: var(--text-primary); }
+.selectWrapper { position: relative; display: flex; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all var(--transition); }
+.selectWrapper:focus-within { border-color: var(--primary-500); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+.error { border-color: var(--error); }
+.select { flex: 1; padding: 0.75rem 2.5rem 0.75rem 1rem; font-size: 0.875rem; color: var(--text-primary); background: transparent; border: none; outline: none; cursor: pointer; appearance: none; }
+.icon { position: absolute; right: 1rem; pointer-events: none; color: var(--text-muted); }
+.errorText { font-size: 0.75rem; color: var(--error); }

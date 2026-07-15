@@ -1,0 +1,51 @@
+.page { max-width: 1200px; margin: 0 auto; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem; }
+.title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
+.subtitle { font-size: 0.875rem; color: var(--text-secondary); }
+.filters { margin-bottom: 1.5rem; }
+.search { display: flex; align-items: center; max-width: 400px; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.search input { flex: 1; border: none; outline: none; font-size: 0.875rem; color: var(--text-primary); background: transparent; }
+.table { background: var(--surface); border-radius: var(--radius-xl); border: 1px solid var(--border); overflow: hidden; }
+.table table { width: 100%; border-collapse: collapse; }
+.table th { padding: 1rem 1.25rem; text-align: left; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); background: var(--gray-100); border-bottom: 1px solid var(--border); }
+.table td { padding: 1rem 1.25rem; font-size: 0.875rem; color: var(--text-primary); border-bottom: 1px solid var(--border); }
+.table tr:last-child td { border-bottom: none; }
+.loading { padding: 2rem; text-align: center; color: var(--text-muted); }
+.eventCell { display: flex; align-items: center; gap: 0.75rem; }
+.eventImage { width: 3rem; height: 3rem; border-radius: var(--radius); object-fit: cover; }
+.eventTitle { font-weight: 600; }
+.eventOrganizer { font-size: 0.75rem; color: var(--text-muted); }
+.userCell { display: flex; align-items: center; gap: 0.75rem; }
+.avatar { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; background: linear-gradient(135deg, var(--primary-600), var(--primary-700)); color: white; font-weight: 600; border-radius: var(--radius-full); }
+.userName { font-weight: 500; }
+.userEmail { font-size: 0.75rem; color: var(--text-muted); }
+.category { padding: 0.25rem 0.5rem; background: var(--gray-100); border-radius: var(--radius); font-size: 0.75rem; font-weight: 500; }
+.role { padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; text-transform: capitalize; }
+.role.admin { background: var(--primary-100); color: var(--primary-600); }
+.role.user { background: var(--success-light); color: var(--success); }
+.status { padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; text-transform: capitalize; }
+.status.confirmed, .status.approved, .status.active { background: var(--success-light); color: var(--success); }
+.status.pending { background: var(--warning-light); color: var(--warning); }
+.status.cancelled, .status.rejected, .status.banned { background: var(--error-light); color: var(--error); }
+.bannedRow { opacity: 0.6; }
+.actions { display: flex; gap: 0.25rem; }
+.actionBtn, .actionBtnDanger, .actionBtnSuccess { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; background: transparent; border-radius: var(--radius); color: var(--text-muted); transition: all var(--transition); }
+.actionBtn:hover { background: var(--gray-100); color: var(--primary-600); }
+.actionBtnDanger:hover { background: var(--error-light); color: var(--error); }
+.actionBtnSuccess:hover { background: var(--success-light); color: var(--success); }
+.ticketCode { font-family: monospace; font-size: 0.75rem; padding: 0.25rem 0.5rem; background: var(--gray-100); border-radius: var(--radius); }
+.form { display: flex; flex-direction: column; gap: 1.25rem; }
+.formGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.formGroup { display: flex; flex-direction: column; gap: 0.375rem; }
+.formGroup label { font-size: 0.875rem; font-weight: 500; color: var(--text-primary); }
+.formGroup input, .formGroup select, .formGroup textarea { padding: 0.75rem 1rem; background: var(--gray-100); border: 1px solid var(--border); border-radius: var(--radius-lg); font-size: 0.875rem; color: var(--text-primary); font-family: inherit; }
+.formGroup input:focus, .formGroup select:focus, .formGroup textarea:focus { outline: none; border-color: var(--primary-500); }
+.formActions { display: flex; justify-content: flex-end; gap: 1rem; padding-top: 0.5rem; }
+.deleteContent { text-align: center; }
+.deleteContent p { margin-bottom: 1.5rem; color: var(--text-secondary); }
+.deleteActions { display: flex; justify-content: center; gap: 1rem; }
+@media (max-width: 896px) {
+  .header { flex-direction: column; gap: 1rem; }
+  .formGrid { grid-template-columns: 1fr; }
+  .table { overflow-x: auto; }
+}

@@ -1,0 +1,12 @@
+.ticket { background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%); border-radius: var(--radius-xl); color: white; overflow: hidden; max-width: 400px; }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: rgba(0, 0, 0, 0.1); }
+.eventure { font-weight: 700; font-size: 0.875rem; letter-spacing: 0.1em; }
+.badge { padding: 0.25rem 0.75rem; background: rgba(255, 255, 255, 0.2); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; }
+.content { display: flex; gap: 1.5rem; padding: 1.5rem; }
+.eventInfo { flex: 1; }
+.eventTitle { font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white; }
+.info { font-size: 0.875rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem; }
+.qrSection { display: flex; flex-direction: column; align-items: center; }
+.qr { padding: 0.5rem; background: white; border-radius: var(--radius); }
+.code { font-family: monospace; font-size: 0.625rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem; }
+.participant { padding: 1rem 1.5rem; background: rgba(0, 0, 0, 0.15); font-size: 0.875rem; }

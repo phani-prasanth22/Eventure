@@ -1,0 +1,6 @@
+.panel { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+.select { min-width: 180px; }
+@media (max-width: 768px) {
+  .panel { flex-direction: column; align-items: stretch; }
+  .select { width: 100%; min-width: auto; }
+}
