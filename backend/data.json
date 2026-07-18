@@ -1,0 +1,530 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$AGbuRINzGf9ZhrRAB2aqNX$cGDXqrpE3j4dM7a0COVRmLwvC/NiYznD+jJFabkPpxE=",
+    "last_login": "2026-07-17T08:47:56.171Z",
+    "is_superuser": true,
+    "username": "eventure",
+    "first_name": "",
+    "last_name": "",
+    "email": "phaniprasanth591@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-22T04:19:25.755Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Info9NehMyZvXwEelMSx0l$GHH8NKi+lJF+dr++BJB04v4vEZ2BYB7jPqWSuK0YRpo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student1",
+    "first_name": "",
+    "last_name": "",
+    "email": "student1@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-23T01:51:21.274Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$9WdH811Z9h7NYJrDVHqA8Y$AXPCqN3IR80nD96f1+ZEJc4eJJvcQ5V477V0E3hUg6A=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student2@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "student2@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-23T03:19:35.399Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$lfluETzlnFYXI1RjbOB7bU$3eTjBX/xuLSXU7bEmeOukj+tD+uOHDbdP51bk3yi8b8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student3@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "student3@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-25T07:19:57.837Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$VlswjjCsM9ZYx9ajJeBcaE$C0/IbgaRHm+uKBBW1YEuJCTlEjtd6itWdNztbkZpAjg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student5@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "student5@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-14T06:20:30.366Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$gjEaFYupqIOqmqfiO4cyKp$r7mDePczzXrQuetuioxF5RRgAXh42H+Ug87wHg7XCr4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student6@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "Student6@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-15T07:46:13Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$NhoII8TEu2gILYZI0RiWpp$0GqOThgWsx6lFqrFM3OwBXW/P8IK8B+W+DtbcEHyJho=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student7@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "student7@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-18T04:20:35.504Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1rpvwa86l1hcebfpurnabfdgd30lla0g",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEQHkNduvcbCAwzUjWQlHZl_Hdt0oVu7znnvkRM21rjNmiJcxFnocXpd8sJH9R2UO6p3brE3tZlznJX5EGHvPZCz8vh_h3UNOq3DtYymeALowKXQwDmRB4hWCoKNDpU2Tg27MF4UshUNCuY0NjJGhDvD_ZHOCM:1wjuKu:qO_DdKgcMWsdxGp2UKsgGKsUExvmARWWGN7zydyxoKM",
+    "expire_date": "2026-07-29T07:47:20.248Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "srcydfbhdxwsv41umd4w1v5w43f1hc2z",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEQHkNduvcbCAwzUjWQlHZl_Hdt0oVu7znnvkRM21rjNmiJcxFnocXpd8sJH9R2UO6p3brE3tZlznJX5EGHvPZCz8vh_h3UNOq3DtYymeALowKXQwDmRB4hWCoKNDpU2Tg27MF4UshUNCuY0NjJGhDvD_ZHOCM:1wbWBL:8oLaImvwbyOr9thG4jKNChWHBQoxI2HQ1rv_IBdqk48",
+    "expire_date": "2026-07-06T04:22:47.705Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "stvd78fq7dgz4l4hhz6rozd2ubep5ism",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEQHkNduvcbCAwzUjWQlHZl_Hdt0oVu7znnvkRM21rjNmiJcxFnocXpd8sJH9R2UO6p3brE3tZlznJX5EGHvPZCz8vh_h3UNOq3DtYymeALowKXQwDmRB4hWCoKNDpU2Tg27MF4UshUNCuY0NjJGhDvD_ZHOCM:1wkeEe:3ZQROGjdagAdXDt6Ty8gCqvDGwFnqsF3tQKkbH2g6tA",
+    "expire_date": "2026-07-31T08:47:56.182Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 1,
+  "fields": {
+    "title": "AI Workshop",
+    "description": "A workshop on AI tools and backend integration",
+    "category": "Technology",
+    "venue": "College Seminar Hall",
+    "event_date": "2026-07-10",
+    "event_time": "10:30:00",
+    "registration_deadline": "2026-07-08",
+    "max_capacity": 100,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "approved",
+    "created_by": [
+      "student1"
+    ],
+    "rejection_reason": null,
+    "cancellation_reason": null,
+    "created_at": "2026-06-23T02:07:49.548Z",
+    "updated_at": "2026-06-23T02:16:43.813Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 2,
+  "fields": {
+    "title": "React Django Event",
+    "description": "This is a test event created from frontend",
+    "category": "Technology",
+    "venue": "San Francisco, CA",
+    "event_date": "2026-07-10",
+    "event_time": "09:00:00",
+    "registration_deadline": "2026-06-30",
+    "max_capacity": 100,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "approved",
+    "created_by": [
+      "student2@gmail.com"
+    ],
+    "rejection_reason": null,
+    "cancellation_reason": null,
+    "created_at": "2026-06-23T03:32:10.972Z",
+    "updated_at": "2026-06-23T12:57:12.750Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 3,
+  "fields": {
+    "title": "codeCarnval",
+    "description": "A Coding Test to test Your Coding Skills",
+    "category": "Technology",
+    "venue": "San Francisco, CA",
+    "event_date": "2026-06-30",
+    "event_time": "09:00:00",
+    "registration_deadline": "2026-06-30",
+    "max_capacity": 102,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "rejected",
+    "created_by": [
+      "student2@gmail.com"
+    ],
+    "rejection_reason": "there is another events at partuclar time ",
+    "cancellation_reason": null,
+    "created_at": "2026-06-23T13:01:58.808Z",
+    "updated_at": "2026-06-23T13:02:57.115Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 4,
+  "fields": {
+    "title": "React Boot CAmp",
+    "description": "A 5 Days bootcamp on React which give a full domain knowlage about React",
+    "category": "Technology",
+    "venue": "Miami, FL",
+    "event_date": "2026-06-26",
+    "event_time": "09:00:00",
+    "registration_deadline": "2026-06-24",
+    "max_capacity": 1,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "approved",
+    "created_by": [
+      "student2@gmail.com"
+    ],
+    "rejection_reason": null,
+    "cancellation_reason": null,
+    "created_at": "2026-06-23T14:02:00.110Z",
+    "updated_at": "2026-06-23T14:02:42.018Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 5,
+  "fields": {
+    "title": "Smart Hack",
+    "description": "Hacathon to solve the social and economical propertires of the socialty",
+    "category": "Technology",
+    "venue": "Los Angeles, CA",
+    "event_date": "2026-06-20",
+    "event_time": "09:00:00",
+    "registration_deadline": "2026-06-20",
+    "max_capacity": 10,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "rejected",
+    "created_by": [
+      "student2@gmail.com"
+    ],
+    "rejection_reason": "no slots avalable\n",
+    "cancellation_reason": null,
+    "created_at": "2026-06-25T07:18:11.632Z",
+    "updated_at": "2026-06-25T07:19:05.425Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 6,
+  "fields": {
+    "title": "BootCamp",
+    "description": "the Sports Day Boot CAmp For Students",
+    "category": "Business",
+    "venue": "Miami, FL",
+    "event_date": "2026-06-27",
+    "event_time": "09:00:00",
+    "registration_deadline": "2026-06-26",
+    "max_capacity": 21,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "approved",
+    "created_by": [
+      "student3@gmail.com"
+    ],
+    "rejection_reason": null,
+    "cancellation_reason": null,
+    "created_at": "2026-06-25T08:00:10.218Z",
+    "updated_at": "2026-06-25T08:00:43.721Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 7,
+  "fields": {
+    "title": "Flutter",
+    "description": "Flutter App Devlopment Boot Camp",
+    "category": "Technology",
+    "venue": "New York, NY",
+    "event_date": "2026-06-30",
+    "event_time": "09:00:00",
+    "registration_deadline": "2026-06-26",
+    "max_capacity": 195,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "approved",
+    "created_by": [
+      "student3@gmail.com"
+    ],
+    "rejection_reason": null,
+    "cancellation_reason": null,
+    "created_at": "2026-06-25T08:38:51.085Z",
+    "updated_at": "2026-06-25T08:39:41.207Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 8,
+  "fields": {
+    "title": "Ai Work Shop",
+    "description": "lkjdnflkfmdslkfmlkdmfklmdkljf",
+    "category": "Technology",
+    "venue": "BaskaraBhavan",
+    "event_date": "2026-07-30",
+    "event_time": "09:00:00",
+    "registration_deadline": "2026-07-27",
+    "max_capacity": 98,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "approved",
+    "created_by": [
+      "student2@gmail.com"
+    ],
+    "rejection_reason": null,
+    "cancellation_reason": null,
+    "created_at": "2026-07-14T06:13:14.586Z",
+    "updated_at": "2026-07-14T06:18:39.789Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 9,
+  "fields": {
+    "title": "workshop",
+    "description": "sjnkjflksajs'f;;l4lk6'g op",
+    "category": "Technology",
+    "venue": "BaskaraBhavan",
+    "event_date": "2026-07-31",
+    "event_time": "09:00:00",
+    "registration_deadline": "2026-07-28",
+    "max_capacity": 50,
+    "ticket_price": "0.00",
+    "banner": "",
+    "status": "approved",
+    "created_by": [
+      "student2@gmail.com"
+    ],
+    "rejection_reason": null,
+    "cancellation_reason": null,
+    "created_at": "2026-07-16T08:18:40.047Z",
+    "updated_at": "2026-07-16T08:19:17.468Z"
+  }
+},
+{
+  "model": "registrations.registration",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "student1"
+    ],
+    "event": 1,
+    "full_name": "Student One",
+    "email": "student1@gmail.com",
+    "phone": "9876543210",
+    "college": "SRKR Engineering College",
+    "year": "3rd Year",
+    "status": "registered",
+    "registered_at": "2026-06-23T02:21:43.206Z",
+    "qr_code": "",
+    "checked_in": false,
+    "checked_in_at": null,
+    "checked_in_by": null
+  }
+},
+{
+  "model": "registrations.registration",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "student1"
+    ],
+    "event": 7,
+    "full_name": "Phani Prasanth",
+    "email": "student1@gmail.com",
+    "phone": "6305213232",
+    "college": "aditya",
+    "year": "",
+    "status": "registered",
+    "registered_at": "2026-06-25T10:01:04.380Z",
+    "qr_code": "",
+    "checked_in": false,
+    "checked_in_at": null,
+    "checked_in_by": null
+  }
+},
+{
+  "model": "registrations.registration",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "student5@gmail.com"
+    ],
+    "event": 8,
+    "full_name": "student5@gmail.com",
+    "email": "student5@gmail.com",
+    "phone": "9515551971",
+    "college": "AUS",
+    "year": "",
+    "status": "registered",
+    "registered_at": "2026-07-14T06:22:16.794Z",
+    "qr_code": "",
+    "checked_in": false,
+    "checked_in_at": null,
+    "checked_in_by": null
+  }
+},
+{
+  "model": "registrations.registration",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "student1"
+    ],
+    "event": 8,
+    "full_name": "student1",
+    "email": "student1@gmail.com",
+    "phone": "9515551971",
+    "college": "AUS",
+    "year": "",
+    "status": "registered",
+    "registered_at": "2026-07-15T07:26:20.662Z",
+    "qr_code": "",
+    "checked_in": false,
+    "checked_in_at": null,
+    "checked_in_by": null
+  }
+},
+{
+  "model": "registrations.registration",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "student6@gmail.com"
+    ],
+    "event": 8,
+    "full_name": "Student 6",
+    "email": "student6@gmail.com",
+    "phone": "65684568415",
+    "college": "AUS",
+    "year": "",
+    "status": "registered",
+    "registered_at": "2026-07-15T07:48:35.318Z",
+    "qr_code": "qrcodes/registration_5.png",
+    "checked_in": false,
+    "checked_in_at": null,
+    "checked_in_by": null
+  }
+},
+{
+  "model": "registrations.registration",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "student5@gmail.com"
+    ],
+    "event": 9,
+    "full_name": "student5",
+    "email": "student5@gmail.com",
+    "phone": "9515551971",
+    "college": "AUS",
+    "year": "",
+    "status": "registered",
+    "registered_at": "2026-07-16T08:23:10.437Z",
+    "qr_code": "qrcodes/registration_6.png",
+    "checked_in": true,
+    "checked_in_at": "2026-07-17T08:51:11.960Z",
+    "checked_in_by": [
+      "eventure"
+    ]
+  }
+},
+{
+  "model": "registrations.registration",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "student7@gmail.com"
+    ],
+    "event": 9,
+    "full_name": "student7",
+    "email": "student7@gmail.com",
+    "phone": "9515551971",
+    "college": "ACET",
+    "year": "",
+    "status": "registered",
+    "registered_at": "2026-07-18T04:21:58.249Z",
+    "qr_code": "qrcodes/registration_7.png",
+    "checked_in": true,
+    "checked_in_at": "2026-07-18T04:33:24.159Z",
+    "checked_in_by": [
+      "eventure"
+    ]
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-07-15T07:47:52.614Z",
+    "user": [
+      "eventure"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "student6@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+  }
+}
+]
