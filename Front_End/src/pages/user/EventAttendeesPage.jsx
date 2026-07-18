@@ -57,7 +57,12 @@ export default function EventAttendeesPage() {
           eventService.getEventById(id),
           registrationService.getEventAttendees(id, { page, limit: 50 })
         ]);
+
         setEvent(eventData);
+
+        console.log("EVENT DATA:", eventData);
+        console.log("ATTENDEES DATA:", attendeesData);
+
         setAttendees(attendeesData.registrations);
         setTotalPages(attendeesData.totalPages);
       } catch (error) {
@@ -72,7 +77,8 @@ export default function EventAttendeesPage() {
 
   useEffect(() => {
     if (event && user && !isAdmin) {
-      const isOrganizer = user?.id === event?.organizerId;
+      // Compare as strings to avoid number/string type mismatch
+      const isOrganizer = String(user?.id) === String(event?.created_by);
       if (!isOrganizer) {
         toast.error('You do not have permission to view this page');
         navigate('/events');
@@ -84,7 +90,7 @@ export default function EventAttendeesPage() {
     const matchSearch = (
       a.fullName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       a.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      a.college?.toLowerCase().includes(searchTerm.toLowerCase()) 
+      a.college?.toLowerCase().includes(searchTerm.toLowerCase())
     );
     const matchStatus = statusFilter === 'all' || a.status === statusFilter;
     return matchSearch && matchStatus;
@@ -114,9 +120,7 @@ export default function EventAttendeesPage() {
         a.phone || 'N/A',
         a.college || 'N/A',
         a.year || 'N/A',
-
         a.registeredAt,
-
         a.status,
       ]);
 
@@ -218,10 +222,8 @@ export default function EventAttendeesPage() {
               className={styles.filterSelect}
             >
               <option value="all">All Status</option>
-              <option value="confirmed">Confirmed</option>
-              <option value="pending">Pending</option>
+              <option value="registered">Registered</option>
               <option value="cancelled">Cancelled</option>
-              <option value="rejected">Rejected</option>
             </select>
           </div>
         </div>
@@ -278,23 +280,20 @@ export default function EventAttendeesPage() {
                       <td className={styles.td}>
                         <div className={styles.collegeCell}>
                           <div className={styles.collegeName}>{attendee.college || 'N/A'}</div>
-
                         </div>
                       </td>
                       <td className={styles.td}>
                         <div className={styles.yearCell}>
                           <GraduationCap size={14} />
                           <span>{attendee.year || 'N/A'}</span>
-
                         </div>
                       </td>
                       <td className={styles.td}>
                         <div className={styles.dateCell}>
                           <Calendar size={14} />
-                          <span>{attendee.registeredAt}</span>
+                          <span>{attendee.registeredAt ? new Date(attendee.registeredAt).toLocaleString() : 'N/A'}</span>
                         </div>
                       </td>
-
                       <td className={styles.td}>
                         <StatusBadge status={attendee.status} />
                       </td>
@@ -332,13 +331,12 @@ export default function EventAttendeesPage() {
                     </div>
                     <div className={styles.mobileRow}>
                       <GraduationCap size={14} />
-                      <span>{attendee.year ? `– ${attendee.year}` : ''}</span>
+                      <span>{attendee.year ? `– ${attendee.year}` : 'N/A'}</span>
                     </div>
                     <div className={styles.mobileRow}>
                       <Calendar size={14} />
-                      <span>Registered: {attendee.registeredAt}</span>
+                      <span>Registered: {attendee.registeredAt ? new Date(attendee.registeredAt).toLocaleString() : 'N/A'}</span>
                     </div>
-
                   </div>
                 </div>
               ))}

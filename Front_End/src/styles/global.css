@@ -153,3 +153,6 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--gray-400);
   border-radius: var(--radius-full);
 }
+.main-content {
+    padding-top: 90px;
+}

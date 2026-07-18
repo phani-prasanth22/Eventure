@@ -3,14 +3,11 @@ from django.contrib.auth.models import User
 from events.models import Event
 
 
-
-
 class Registration(models.Model):
     STATUS_CHOICES = [
         ('registered', 'Registered'),
         ('cancelled', 'Cancelled'),
     ]
-    
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='registrations')
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='registrations')
@@ -24,8 +21,23 @@ class Registration(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='registered')
     registered_at = models.DateTimeField(auto_now_add=True)
 
+    qr_code = models.ImageField(
+        upload_to='qrcodes/',
+        blank=True,
+        null=True
+    )
+    checked_in = models.BooleanField(default=False)
+    checked_in_at = models.DateTimeField(null=True, blank=True)
+    checked_in_by = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='checkins_performed'
+    )
+
     def __str__(self):
         return f"{self.full_name} - {self.event.title}"
-    
+
     class Meta:
         unique_together = ['user', 'event']

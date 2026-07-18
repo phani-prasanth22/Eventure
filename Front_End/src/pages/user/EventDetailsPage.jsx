@@ -204,11 +204,18 @@ export default function EventDetailsPage() {
               </div>
 
               {(isOrganizer || isAdmin) && event.status === 'approved' && (
-                <Link to={`/events/${id}/attendees`} className={styles.attendeesLink}>
-                  <Button variant="outline" fullWidth leftIcon={<UsersRound size={18} />}>
-                    View Attendees ({event.registered || 0})
-                  </Button>
-                </Link>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <Link to={`/events/${id}/attendees`} className={styles.attendeesLink}>
+                    <Button variant="outline" fullWidth leftIcon={<UsersRound size={18} />}>
+                      View Attendees ({event.registered || 0})
+                    </Button>
+                  </Link>
+                  <Link to={`/events/${id}/checkin`}>
+                    <Button variant="outline" fullWidth leftIcon={<CheckCircle size={18} />}>
+                      Check-In Scanner
+                    </Button>
+                  </Link>
+                </div>
               )}
             </div>
           </div>

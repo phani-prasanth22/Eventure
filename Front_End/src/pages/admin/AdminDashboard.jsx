@@ -6,8 +6,6 @@ import {
   FileText, CheckSquare
 } from 'lucide-react';
 import eventService from '../../services/eventService';
-import userService from '../../services/userService';
-import registrationService from '../../services/registrationService';
 import Button from '../../components/common/Button';
 import styles from './AdminDashboard.module.css';
 
@@ -20,17 +18,12 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [allEventsResult, userStats, regStats, pendingResult] = await Promise.all([
+        const [allEventsResult, pendingResult] = await Promise.all([
           eventService.getAllEvents({ page: 1, limit: 1000 }),
-          userService.getUserStats(),
-          registrationService.getRegistrationStats(),
           eventService.getPendingApprovals({ limit: 5 }),
         ]);
 
         const allEvents = allEventsResult.events || [];
-
-        console.log('ALL EVENTS RESULT:', allEventsResult);
-        console.log('ALL EVENTS ARRAY:', allEvents);
 
         const pendingCount = allEvents.filter(e => e.status === 'pending').length;
         const approvedCount = allEvents.filter(e => e.status === 'approved').length;
@@ -39,13 +32,13 @@ export default function AdminDashboard() {
 
         setStats({
           totalEvents: allEvents.length,
-          totalUsers: userStats.total || 0,
-          totalRegistrations: regStats.total || 0,
+          totalUsers: 0,           // no endpoint yet
+          totalRegistrations: 0,   // no endpoint yet
           pendingCount,
           approvedCount,
           rejectedCount,
           cancelledCount,
-          revenue: 15600,
+          revenue: 0,
         });
 
         setPendingEvents(pendingResult.events || []);

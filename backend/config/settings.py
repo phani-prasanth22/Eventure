@@ -12,8 +12,16 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from datetime import timedelta
 from pathlib import Path
 
+import os
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# MEDIA files (QR codes, event banners, uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -133,8 +141,8 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),   # was 5 minutes
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),    # refresh lasts 7 days
-    'ROTATE_REFRESH_TOKENS': True,                  # issue new refresh token on each refresh
-    'BLACKLIST_AFTER_ROTATION': False,              # set True if you install blacklist app
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),   
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),    
+    'ROTATE_REFRESH_TOKENS': True,                  
+    'BLACKLIST_AFTER_ROTATION': False,             
 }

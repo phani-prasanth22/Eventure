@@ -9,10 +9,18 @@ __pycache__/
 # Database
 backend/db.sqlite3
 
+# Django Media
+backend/media/
+
+
+
 # React
 Front_End/node_modules/
 Front_End/dist/
 Front_End/.vite/
+
+# Node modules (anywhere)
+**/node_modules/
 
 # Environment
 .env

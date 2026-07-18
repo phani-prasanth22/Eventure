@@ -10,3 +10,60 @@
 .qr { padding: 0.5rem; background: white; border-radius: var(--radius); }
 .code { font-family: monospace; font-size: 0.625rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.5rem; }
 .participant { padding: 1rem 1.5rem; background: rgba(0, 0, 0, 0.15); font-size: 0.875rem; }
+.qrImage {
+  width: 120px;
+  height: 120px;
+  display: block;
+}
+
+.qrPlaceholder {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  border-radius: 8px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-top: 1px dashed #e5e7eb;
+  font-size: 0.75rem;
+  color: #6b7280;
+  background: #f9fafb;
+}
+
+.status {
+  font-weight: 600;
+  color: #10b981;
+}
+
+.registeredAt {
+  color: #9ca3af;
+}
+
+.downloadWrapper {
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.downloadBtn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.downloadBtn:hover {
+  background: #2563eb;
+}

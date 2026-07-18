@@ -23,6 +23,7 @@ import CreateEvent from './pages/admin/CreateEvent';
 import AdminEventApproval from './pages/admin/AdminEventApproval';
 import EventAttendeesPage from './pages/user/EventAttendeesPage';
 import NotFoundPage from './pages/NotFoundPage';
+import EventCheckInPage from './pages/admin/EventCheckInPage';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
       { path: 'edit-event/:id', element: <ProtectedRoute><UserCreateEvent /></ProtectedRoute> },
       { path: 'events/:id/attendees', element: <ProtectedRoute><EventAttendeesPage /></ProtectedRoute> },
       { path: 'profile', element: <ProtectedRoute><ProfilePage /></ProtectedRoute> },
+      { path: '/events/:id/checkin', element: <EventCheckInPage /> },
       {
         path: 'admin',
         element: <ProtectedRoute adminOnly><AdminLayout /></ProtectedRoute>,
