@@ -80,6 +80,9 @@ class MyRegistrationsView(generics.ListAPIView):
 
 
 class EventAttendeeListView(generics.ListAPIView):
+    """
+    Accessible by: admin, organizer, assigned team members
+    """
     serializer_class = RegistrationSerializer
     permission_classes = [IsOrganizerOrAdmin]
 
@@ -92,13 +95,19 @@ class EventAttendeeListView(generics.ListAPIView):
         context['request'] = self.request
         return context
 
+
 class DownloadAttendeesCSVView(generics.GenericAPIView):
+    """
+    Accessible by: admin, organizer, assigned team members
+    """
     permission_classes = [IsOrganizerOrAdmin]
 
     def get(self, request, event_id):
         registrations = Registration.objects.filter(event_id=event_id)
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = f'attachment; filename="event_{event_id}_attendees.csv"'
+        response['Content-Disposition'] = (
+            f'attachment; filename="event_{event_id}_attendees.csv"'
+        )
         writer = csv.writer(response)
         writer.writerow([
             'Full Name', 'Email', 'Phone', 'College',
@@ -118,6 +127,7 @@ class DownloadAttendeesCSVView(generics.GenericAPIView):
 class CheckInView(APIView):
     """
     Single endpoint for both camera and USB QR scanner check-in.
+    Accessible by: admin, organizer, assigned team members.
     POST /api/registrations/event/<event_id>/checkin/
     Body: { "qr_data": "<scanned string>" }
     """
@@ -165,7 +175,7 @@ class CheckInView(APIView):
 class CheckInStatsView(APIView):
     """
     GET /api/registrations/event/<event_id>/checkin/stats/
-    Returns live attendance statistics.
+    Accessible by: admin, organizer, assigned team members.
     """
     permission_classes = [IsOrganizerOrAdmin]
 
@@ -176,8 +186,8 @@ class CheckInStatsView(APIView):
 class CheckInSearchView(APIView):
     """
     POST /api/registrations/event/<event_id>/checkin/search/
-    Body: { "query": "name or email or registration id" }
-    Fallback for damaged QR codes.
+    Fallback search for damaged QR codes.
+    Accessible by: admin, organizer, assigned team members.
     """
     permission_classes = [IsOrganizerOrAdmin]
 
@@ -191,15 +201,17 @@ class CheckInSearchView(APIView):
 
         registrations = search_registration(event_id, query)
         return Response(
-            CheckInSerializer(registrations, many=True, context={'request': request}).data
+            CheckInSerializer(
+                registrations, many=True, context={'request': request}
+            ).data
         )
 
 
 class ManualCheckInView(APIView):
     """
     POST /api/registrations/event/<event_id>/checkin/manual/
-    Body: { "registration_id": 3 }
-    For manual check-in after fallback search.
+    Manual check-in after fallback search.
+    Accessible by: admin, organizer, assigned team members.
     """
     permission_classes = [IsOrganizerOrAdmin]
 
@@ -211,7 +223,6 @@ class ManualCheckInView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # Build synthetic QR data using the registration_id
         import json
         try:
             reg = Registration.objects.get(id=registration_id, event_id=event_id)

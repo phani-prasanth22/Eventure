@@ -3,6 +3,7 @@ import MainLayout from './layouts/MainLayout';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import AdminLayout from './pages/admin/AdminLayout';
 
+
 // Pages
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/user/LoginPage';
@@ -12,6 +13,8 @@ import EventsPage from './pages/user/EventsPage';
 import EventDetailsPage from './pages/user/EventDetailsPage';
 import EventRegistrationPage from './pages/user/EventRegistrationPage';
 import MyEventsPage from './pages/user/MyEventsPage';
+import ManageTeamPage from './pages/user/ManageTeamPage';
+import MyAssignedEventsPage from './pages/user/MyAssignedEventsPage';
 import ProfilePage from './pages/user/ProfilePage';
 import UserCreateEvent from './pages/user/UserCreateEvent';
 import MyCreatedEvents from './pages/user/MyCreatedEvents';
@@ -45,6 +48,8 @@ const router = createBrowserRouter([
       { path: 'events/:id/attendees', element: <ProtectedRoute><EventAttendeesPage /></ProtectedRoute> },
       { path: 'profile', element: <ProtectedRoute><ProfilePage /></ProtectedRoute> },
       { path: '/events/:id/checkin', element: <EventCheckInPage /> },
+      { path: 'events/:id/team', element: <ProtectedRoute><ManageTeamPage /></ProtectedRoute> },
+      { path: 'my-assigned-events', element: <ProtectedRoute><MyAssignedEventsPage /></ProtectedRoute> },
       {
         path: 'admin',
         element: <ProtectedRoute adminOnly><AdminLayout /></ProtectedRoute>,

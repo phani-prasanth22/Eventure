@@ -48,11 +48,11 @@ export default function LoginPage() {
             {error && <div className={styles.errorBanner}>{error}</div>}
             <form onSubmit={handleSubmit} className={styles.form}>
               <Input
-                label="Username"
+                label="Email"
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your username"
+                placeholder="Enter your Email"
                 leftIcon={<Mail size={18} />}
                 fullWidth
                 required

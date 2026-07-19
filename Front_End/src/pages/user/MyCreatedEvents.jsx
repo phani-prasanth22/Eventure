@@ -223,7 +223,7 @@ export default function MyCreatedEvents() {
                         </Button>
                       </Link>
 
-                      {event.status === 'approved'  && (
+                      {event.status === 'approved' && (
                         <Button
                           variant="outline"
                           size="sm"
@@ -249,6 +249,10 @@ export default function MyCreatedEvents() {
                           </Button>
                         </Link>
                       )}
+                      <Link to={`/events/${event.id}/team`} className={styles.teamBtn}>
+                        <Users size={14} />
+                        Manage Team
+                      </Link>
                     </div>
                   </div>
                 </div>

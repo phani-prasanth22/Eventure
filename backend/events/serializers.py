@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Event
+from .models import Event, EventTeam
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -92,12 +93,43 @@ class EventSerializer(serializers.ModelSerializer):
             data.pop('venue')
 
         return super().to_internal_value(data)
+    def validate(self, data):
+        if not data.get("venue"):
+            raise serializers.ValidationError(
+                {"venue": "Venue is required."}
+            )
 
-    def validate(self, data):
-        # Ensure venue is present after all remapping
-        if not data.get('venue') and not data.get('event_date'):
-            raise serializers.ValidationError("Required fields are missing.")
+        if not data.get("event_date"):
+            raise serializers.ValidationError(
+                {"event_date": "Event date is required."}
+            )
+
         return data
-    def validate(self, data):
-        print("DATA AFTER to_internal_value:", data)
-        return data
+    
+class EventTeamSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(source="user.username", read_only=True)
+    email = serializers.EmailField(source="user.email", read_only=True)
+    full_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = EventTeam
+        fields = [
+            "id",
+            "user",
+            "username",
+            "full_name",
+            "email",
+            "role",
+            "added_by",
+            "created_at",
+        ]
+        read_only_fields = fields
+
+    def get_full_name(self, obj):
+        return obj.user.get_full_name() or obj.user.username
+    
+class AddTeamMemberSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate_email(self, value):
+        return value.strip().lower()

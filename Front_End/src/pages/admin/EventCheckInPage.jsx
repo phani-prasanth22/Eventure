@@ -12,6 +12,7 @@ import checkinService from '../../services/checkinService';
 import eventService from '../../services/eventService';
 import toast from 'react-hot-toast';
 import styles from './EventCheckInPage.module.css';
+import teamService from '../../services/teamService';
 
 const RESULT_TIMEOUT = 4000; // auto-clear result after 4 seconds
 
@@ -47,9 +48,21 @@ export default function EventCheckInPage() {
                 setStats(statsData);
 
                 // Permission check
+                // Permission check — allow admin, organizer, and assigned team members
                 if (!isAdmin && String(user?.id) !== String(eventData?.created_by)) {
-                    toast.error('You do not have permission to access this page.');
-                    navigate('/events');
+                    try {
+                        const assignedEvents = await teamService.getAssignedEvents();
+                        const isAssigned = assignedEvents.some(
+                            (e) => String(e.id) === String(eventId)
+                        );
+                        if (!isAssigned) {
+                            toast.error('You do not have permission to access this page.');
+                            navigate('/events');
+                        }
+                    } catch {
+                        toast.error('You do not have permission to access this page.');
+                        navigate('/events');
+                    }
                 }
             } catch {
                 toast.error('Failed to load event.');
@@ -349,7 +362,7 @@ export default function EventCheckInPage() {
                                             Check In
                                         </button>
                                     )}
-                                    
+
                                 </div>
 
                             ))}

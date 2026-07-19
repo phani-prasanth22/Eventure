@@ -34,3 +34,43 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+    
+class EventTeam(models.Model):
+    ROLE_CHOICES = [
+        ("volunteer", "Volunteer"),
+        ("lead", "Lead"),
+    ]
+
+    event = models.ForeignKey(
+        Event,
+        on_delete=models.CASCADE,
+        related_name="team_members",
+    )
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="assigned_events",
+    )
+
+    added_by = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="team_members_added",
+    )
+
+    role = models.CharField(
+        max_length=20,
+        choices=ROLE_CHOICES,
+        default="volunteer",
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("event", "user")
+        ordering = ["created_at"]
+
+    def __str__(self):
+        return f"{self.user.username} ({self.role}) - {self.event.title}"

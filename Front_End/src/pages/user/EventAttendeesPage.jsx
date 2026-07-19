@@ -6,6 +6,7 @@ import {
   AlertCircle, XCircle, Ban
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import teamService from '../../services/teamService';
 import Button from '../../components/common/Button';
 import { PageLoader } from '../../components/common/Loader';
 import EmptyState from '../../components/common/EmptyState';
@@ -76,14 +77,31 @@ export default function EventAttendeesPage() {
   }, [id, page]);
 
   useEffect(() => {
-    if (event && user && !isAdmin) {
-      // Compare as strings to avoid number/string type mismatch
-      const isOrganizer = String(user?.id) === String(event?.created_by);
-      if (!isOrganizer) {
-        toast.error('You do not have permission to view this page');
-        navigate('/events');
+    const checkAccess = async () => {
+      if (!event || !user || isAdmin) return;
+
+      const isOrganizer =
+        String(user.id) === String(event.created_by);
+
+      if (isOrganizer) return;
+
+      try {
+        const assignedEvents = await teamService.getAssignedEvents();
+
+        const isAssigned = assignedEvents.some(
+          (e) => String(e.id) === String(event.id)
+        );
+
+        if (!isAssigned) {
+          toast.error("You do not have permission to view this page");
+          navigate("/events");
+        }
+      } catch (err) {
+        navigate("/events");
       }
-    }
+    };
+
+    checkAccess();
   }, [event, user, isAdmin, navigate]);
 
   const filteredAttendees = attendees.filter(a => {

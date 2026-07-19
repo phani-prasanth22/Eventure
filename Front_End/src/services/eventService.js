@@ -179,27 +179,28 @@ export const eventService = {
   },
 
   async submitEventForApproval(eventData) {
-  if (USE_MOCK) {
-    await new Promise((r) => setTimeout(r, 500));
-    eventsData = getEventsData();
-    const newEvent = {
-      id: String(Date.now()),
-      ...eventData,
-      registered: 0,
-      createdAt: new Date().toISOString().split('T')[0],
-      status: 'pending',
-      schedule: eventData.schedule || [],
-      speakers: eventData.speakers || [],
-      rules: eventData.rules || [],
-    };
-    eventsData.unshift(newEvent);
-    saveEventsData(eventsData);
-    return newEvent;
-  }
-  // Send as-is — UserCreateEvent.jsx already maps to model field names
-  const response = await api.post('/events/create/', eventData);
-  return response.data;
-},
+    if (USE_MOCK) {
+      await new Promise((r) => setTimeout(r, 500));
+      eventsData = getEventsData();
+      const newEvent = {
+        id: String(Date.now()),
+        ...eventData,
+        registered: 0,
+        createdAt: new Date().toISOString().split('T')[0],
+        status: 'pending',
+        schedule: eventData.schedule || [],
+        speakers: eventData.speakers || [],
+        rules: eventData.rules || [],
+      };
+      eventsData.unshift(newEvent);
+      saveEventsData(eventsData);
+      return newEvent;
+    }
+    // Send as-is — UserCreateEvent.jsx already maps to model field names
+    const response = await api.post('/events/create/', eventData);
+    return response.data;
+  },
+
 
   async approveEvent(eventId, reviewNotes = '') {
     if (USE_MOCK) {
@@ -405,9 +406,15 @@ export const eventService = {
     const response = await api.get('/events/stats/');
     return response.data;
   },
+  async getAssignedEvents() {
+    const response = await api.get('/events/my-assigned-events/');
+    return response.data;
+  },
 
   getCategories: () => eventCategories,
   getLocations: () => locations,
 };
+
+
 
 export default eventService;

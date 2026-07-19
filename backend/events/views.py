@@ -6,12 +6,43 @@ from .serializers import EventSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAdminUser
 from datetime import datetime
+from django.utils import timezone
 
+from django.shortcuts import get_object_or_404
 
+from .models import Event, EventTeam
+from .serializers import (
+    EventSerializer,
+    EventTeamSerializer,
+    AddTeamMemberSerializer,
+)
+from .services import (
+    add_team_member,
+    get_team_members,
+    remove_team_member,
+    get_assigned_events,
+)
+from .permissions import IsOrganizerOrAdmin
 
 class EventListCreateView(generics.ListAPIView):
-    queryset = Event.objects.filter(status='approved')
     serializer_class = EventSerializer
+
+    def get_queryset(self):
+        now = timezone.now()
+        return Event.objects.filter(
+            status='approved',
+            # Exclude events where date+time has already passed
+            # We filter by date first for index efficiency,
+            # then exclude same-day events that have already ended
+        ).exclude(
+            # Events that ended on a previous day
+            event_date__lt=now.date()
+        ).exclude(
+            # Events that end today but time has already passed
+            event_date=now.date(),
+            event_time__lt=now.time()
+        )
+    
 
 
 class EventDetailView(generics.RetrieveAPIView):
@@ -129,3 +160,100 @@ class AdminEventStatusUpdateView(generics.UpdateAPIView):
         event.save()
         return Response(EventSerializer(event, context={'request': request}).data,
                         status=status.HTTP_200_OK)
+        
+class EventTeamView(generics.GenericAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = AddTeamMemberSerializer
+
+    def get_event(self, event_id):
+        return get_object_or_404(Event, pk=event_id)
+
+    def get(self, request, event_id):
+        event = self.get_event(event_id)
+
+        permission = IsOrganizerOrAdmin()
+        if not permission.has_object_permission(request, self, event):
+            return Response(
+                {"detail": "Permission denied."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        members = get_team_members(event)
+
+        serializer = EventTeamSerializer(members, many=True)
+
+        return Response(serializer.data)
+
+    def post(self, request, event_id):
+        event = self.get_event(event_id)
+
+        permission = IsOrganizerOrAdmin()
+        if not permission.has_object_permission(request, self, event):
+            return Response(
+                {"detail": "Permission denied."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            member = add_team_member(
+                event=event,
+                email=serializer.validated_data["email"],
+                added_by=request.user,
+            )
+        except ValueError as e:
+            return Response(
+                {"detail": str(e)},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        except PermissionError as e:
+            return Response(
+                {"detail": str(e)},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        return Response(
+            EventTeamSerializer(member).data,
+            status=status.HTTP_201_CREATED,
+        )
+class EventTeamDetailView(generics.DestroyAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def delete(self, request, event_id, member_id):
+        event = get_object_or_404(Event, pk=event_id)
+
+        permission = IsOrganizerOrAdmin()
+        if not permission.has_object_permission(request, self, event):
+            return Response(
+                {"detail": "Permission denied."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        try:
+            remove_team_member(
+                event=event,
+                member_id=member_id,
+                removed_by=request.user,
+            )
+        except EventTeam.DoesNotExist:
+            return Response(
+                {"detail": "Team member not found."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        except PermissionError as e:
+            return Response(
+                {"detail": str(e)},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class MyAssignedEventsView(generics.ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = EventSerializer
+
+    def get_queryset(self):
+        return get_assigned_events(self.request.user)

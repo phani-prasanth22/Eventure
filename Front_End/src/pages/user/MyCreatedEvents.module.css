@@ -327,3 +327,21 @@
     flex-direction: column;
   }
 }
+
+
+
+.teamBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.875rem;
+  background: #ede9fe;
+  color: #7c3aed;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.teamBtn:hover { background: #ddd6fe; }
